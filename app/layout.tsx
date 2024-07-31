@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Didact_Gothic } from "next/font/google";
+import { Didact_Gothic, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
 //COMPONENTS
@@ -15,6 +15,12 @@ const didact = Didact_Gothic({
   variable: "--font-gothic"
 });
 
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
+  variable: "--font-jetbrainsMono"
+})
+
 export const metadata: Metadata = {
   title: "Weslley dos Santos",
   description: "web site by weslley",
@@ -27,7 +33,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <body className={didact.variable}>
+      <body className={didact.variable + ' ' + jetbrainsMono.variable}>
         <Header />
         <StairTransition />
         <PageTransition>

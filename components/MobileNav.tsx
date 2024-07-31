@@ -35,11 +35,11 @@ export const MobileNav = () => {
     return (
         <Sheet>
             <SheetTrigger className="flex justify-center items-center align-middle">
-                <CiMenuFries className="text-[2rem] text-accent-default" />
+                <CiMenuFries className="text-[2rem] text-accent font-extrabold mr-2" />
             </SheetTrigger>
             <SheetContent className="flex flex-col border-0">
                 <Link href="/" className="font-bold text-3xl capitalize  mt-32 mb-40 text-center text-2xl">
-                    <h1>Weslley S<span className="text-accent-default">.</span></h1>
+                    <h1>Weslley  <span className="text-accent">.</span></h1>
                 </Link>
                 <nav className="flex flex-col justify-center items-center gap-4">
                     {links.map((link, index) => {
@@ -49,8 +49,8 @@ export const MobileNav = () => {
                                 <Link
                                     href={link.path}
                                     key={index}
-                                    className={`${link.path === pathname && "text-accent-default border-b-2 hover:bg-accent-default hover:rounded-xl hover:text-primary border-accent-default"}
-                                capitalize font-medium   hover:text-accent-default p-1 transition-all`}
+                                    className={`${link.path === pathname && "text-accent-default border-b-2 hover:bg-accent hover:rounded-xl hover:text-primary border-accent"}
+                                capitalize font-medium   hover:text-accent p-1 transition-all`}
                                 >
                                     {link.name}
                                 </Link>

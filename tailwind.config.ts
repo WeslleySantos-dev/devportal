@@ -22,16 +22,15 @@ const config = {
 
     },
     fontFamily: {
-      primary: "var(--font-gothic)"
+      primary: "var(--font-gothic)",
+      secondary: "var(--font-jetbrainsMono)"
     },
     extend: {
 
       colors: {
         primary: "#1c1c22",
-        accent: {
-          default: "#00ffff",
-          hover: "#00fefe"
-        }
+        accent: "#00ffff",
+        accent_hover: "#00fefe"
       },
       keyframes: {
         "accordion-down": {

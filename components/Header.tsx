@@ -6,10 +6,10 @@ import { MobileNav } from "./MobileNav"
 export const Header = () => {
 
     return (
-        <header className="py-8 xl:py-6 text-white bg-slate-900">
+        <header className="py-8 xl:py-6 text-white ">
             <div className="container gap-10 w-screen font-bold flex justify-between items-center">
                 <Link href="/" className="font-bold text-2xl ">
-                    <h1>Weslley S<span className="text-accent-default">.</span>
+                    <h1>Weslley <span className="text-accent text-3xl">.</span>
                     </h1>
                 </Link>
                 {/* Desktop nav */}

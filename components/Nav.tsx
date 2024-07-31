@@ -33,8 +33,8 @@ export const Nav = () => {
             return (<Link
                 href={link.path}
                 key={index}
-                className={`${link.path === pathname && "text-accent-default border-b-2 hover:bg-accent-default hover:rounded-xl hover:text-primary border-accent-default"}
-                    capitalize font-medium hover:text-accent-default p-1 transition-all`}
+                className={`${link.path === pathname && "text-accent border-b-2 hover:bg-accent hover:rounded-xl hover:text-primary border-accent"}
+                    capitalize font-medium hover:text-accent p-1 transition-all`}
             >
                 {link.name}
             </Link>)
