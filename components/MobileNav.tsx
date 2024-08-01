@@ -38,17 +38,18 @@ export const MobileNav = () => {
                 <CiMenuFries className="text-[2rem] text-accent font-extrabold mr-2" />
             </SheetTrigger>
             <SheetContent className="flex flex-col border-0">
-                <Link href="/" className="font-bold text-3xl capitalize  mt-32 mb-40 text-center text-2xl">
+                <Link href="/" className="font-bold text-3xl capitalize  mt-32 mb-40 text-center">
                     <h1>Weslley  <span className="text-accent">.</span></h1>
                 </Link>
                 <nav className="flex flex-col justify-center items-center gap-4">
                     {links.map((link, index) => {
                         return (
-                            <SheetClose asChild={true}>
+                            <SheetClose asChild={true}
+                                key={index}>
 
                                 <Link
                                     href={link.path}
-                                    key={index}
+
                                     className={`${link.path === pathname && "text-accent-default border-b-2 hover:bg-accent hover:rounded-xl hover:text-primary border-accent"}
                                 capitalize font-medium   hover:text-accent p-1 transition-all`}
                                 >

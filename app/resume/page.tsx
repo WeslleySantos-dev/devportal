@@ -92,7 +92,7 @@ const education = {
             institution: "Rocketseat",
             degree: "C# develpment",
             duration: '2024'
-        },
+        }
 
 
     ]
@@ -141,7 +141,7 @@ const skills = {
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@radix-ui/react-tooltip'
-import { ScrollArea } from '@radix-ui/react-scroll-area'
+import { ScrollArea } from '@/components/ui/scroll-area'
 import { motion } from 'framer-motion'
 
 export default function Resume() {
@@ -161,19 +161,101 @@ export default function Resume() {
                     className='flex flex-col xl:flex-row gap-[3rem]'>
                     <TabsList className='flex flex-col w-full max-w-[380px] mx-auto xl:mx-0
                     gap-6'>
-                        <TabsTrigger value='experience'>Experience</TabsTrigger>
-                        <TabsTrigger value='education'>Education</TabsTrigger>
-                        <TabsTrigger value='skills'>Skills</TabsTrigger>
-                        <TabsTrigger value='about'>About me</TabsTrigger>
+                        <TabsTrigger className=' bg-secondary' value='experience'>Experience</TabsTrigger>
+                        <TabsTrigger className='bg-secondary' value='education'>Education</TabsTrigger>
+                        <TabsTrigger className='bg-secondary' value='skills'>Skills</TabsTrigger>
+                        <TabsTrigger className='bg-secondary' value='about'>About me</TabsTrigger>
                     </TabsList>
 
                     {/* Content */}
                     <div className='min-h-[70vh] w-full'>
-                    
                         {/* Experience */}
                         <TabsContent value='experience'
                             className='w-full'>
-                            Experience
+                            <div className=' flex flex-col gap-8 text-center xl:text-left'>
+                                <h3 className='text-4xl font-bold'>
+                                    {experience.title}</h3>
+                                <p className=' max-w-[600px] text-white/50 mx-auto xl:mx-0'>{experience.description}
+                                </p>
+                                <ScrollArea className='h-[400px]'>
+                                    <ul className='grid grid-cols-1 lg:grid-cols-2 gap-7'>
+                                        {experience.items.map((item, index) => {
+                                            return <li key={index}
+
+                                                className='bg-secondary h-[11.5rem] py-4 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1'>
+                                                <span className=' text-accent'>{item.duration}</span>
+                                                <h3 className='text-xl max-w-64 min-h-12 text-center lg:text-left'>{item.position}</h3>
+                                                <div className=' flex items-center gap-3'>
+                                                    {/* dot */}
+                                                    <span className='w-[0.375rem] h-[0.375rem] rounded-full bg-accent'></span>
+                                                    <p className='text-white/60'>{item.company}</p>
+                                                </div>
+                                            </li>
+                                        })}
+                                    </ul>
+                                </ScrollArea>
+                            </div>
+                        </TabsContent>
+
+                        {/* Education */}
+                        <TabsContent value='education'
+                            className='w-full'>
+                            <div className=' flex flex-col gap-8 text-center xl:text-left'>
+                                <h3 className='text-4xl font-bold'>
+                                    {experience.title}</h3>
+                                <p className=' max-w-[600px] text-white/50 mx-auto xl:mx-0'>{education.description}
+                                </p>
+                                <ScrollArea className='h-[400px]'>
+                                    <ul className='grid grid-cols-1 lg:grid-cols-2 gap-7'>
+                                        {education.items.map((item, index) => {
+                                            return <li key={index}
+
+                                                className='bg-secondary h-[11.5rem] py-4 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1'>
+                                                <span className=' text-accent'>{item.duration}</span>
+                                                <h3 className='text-xl max-w-64 min-h-12 text-center lg:text-left'>{item.degree}</h3>
+                                                <div className=' flex items-center gap-3'>
+                                                    {/* dot */}
+                                                    <span className='w-[0.375rem] h-[0.375rem] rounded-full bg-accent'></span>
+                                                    <p className='text-white/60'>{item.institution}</p>
+                                                </div>
+                                            </li>
+                                        })}
+                                    </ul>
+                                </ScrollArea>
+                            </div>
+                        </TabsContent>
+
+                        {/* skills */}
+                        <TabsContent value='skills'
+                            className='w-full h-full'>
+                            <div className='flex flex-col gap-7'>
+                                <div className='flex flex-col gap-7 text-center xl:text-left'>
+                                    <h3 className='text-4xl font-bold'>{skills.title}</h3>
+                                    <p className='max-w-[600px] text-white/60 mx-auto xl:mx-0 '>{skills.description}</p>
+                                </div>
+                                <ul className=' grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 xl:gap-7	'>
+                                    {skills.skillList.map((skill, index) => {
+                                        return <li key={index}>
+                                            <TooltipProvider delayDuration={100}>
+                                                <Tooltip>
+                                                    <TooltipTrigger className='w-full h-36 group bg-secondary rounded-xl flex items-center justify-center'>
+                                                        <div className='text-6xl group-hover:text-accent transition-all duration-300'>{skill.icon}</div>
+                                                    </TooltipTrigger>
+                                                    <TooltipContent>
+                                                        <p className='capitalize'>{skill.name}</p>
+                                                    </TooltipContent>
+                                                </Tooltip>
+                                            </TooltipProvider>
+                                        </li>
+                                    })}
+                                </ul>
+                            </div>
+                        </TabsContent>
+
+                        {/* about */}
+                        <TabsContent value='about'
+                            className='w-full'>
+                            About me
                         </TabsContent>
                     </div>
                 </Tabs>
